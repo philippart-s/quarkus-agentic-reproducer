@@ -1,6 +1,7 @@
 package fr.wilda.quarkus;
 
 import fr.wilda.quarkus.agent.AgentWorkflow;
+import io.quarkus.logging.Log;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
@@ -16,6 +17,7 @@ public class GreetingResource {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String hello() {
+      //return agentWorkflow.executeJarvisWorkflow("Give me the time.");
       return agentWorkflow.executeJarvisWorkflow("Why the sky is blue?");
     }
 }

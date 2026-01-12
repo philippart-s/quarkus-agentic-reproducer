@@ -9,7 +9,7 @@ public interface AvailableAgents {
   @ConditionalAgent(
       subAgents = {
           GitHubAgent.class,
-          RagAgent.class,
+          TimeAgent.class,
           ChatAgent.class,
       },
       outputKey = "response"
@@ -23,11 +23,11 @@ public interface AvailableAgents {
     return subCommand.equals(ClassifierAgent.SubCommand.MCP);
   }
 
-  @ActivationCondition(RagAgent.class)
+  @ActivationCondition(TimeAgent.class)
   static boolean activateRagAgent(ClassifierAgent.SubCommand subCommand) {
-    Log.info("Activation of RagAgent : " + subCommand);
-    Log.info(subCommand.equals(ClassifierAgent.SubCommand.RAG));
-    return subCommand.equals(ClassifierAgent.SubCommand.RAG);
+    Log.info("Activation of TimeAgent : " + subCommand);
+    Log.info(subCommand.equals(ClassifierAgent.SubCommand.TIME));
+    return subCommand.equals(ClassifierAgent.SubCommand.TIME);
   }
 
   @ActivationCondition(ChatAgent.class)

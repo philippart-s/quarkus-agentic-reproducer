@@ -7,17 +7,17 @@ import dev.langchain4j.service.UserMessage;
 public interface ClassifierAgent {
 
   enum SubCommand {
-    RAG,
+    TIME,
     MCP,
     CHAT
   }
 
   @SystemMessage("""
       You are a classifier that determines which type of sub-command should be called in Jarvis.
-     Analyze the question and return ONLY one of the following words: RAG, MCP, or CHAT.
+     Analyze the question and return ONLY one of the following words: TIME, MCP, or CHAT.
 
      Classification rules:
-       -  RAG: questions mentioning documents, files, PDFs, “in the document”, “according to the file”
+       - TIME: question mentioning time, date, ...
        - MCP: questions about OVHcloud services via MCP, cloud projects, cloud resources
        - CHAT: all other questions that do not fall into the two previous categories
 
@@ -26,9 +26,9 @@ public interface ClassifierAgent {
 
      Examples:
       - “Give me the number of Quarkusio repository” → MCP
-      - “What does the document say about X?” → RAG
+      - “What day is it today?” → RAG
       - “What’s the weather like?” → CHAT
-      - “Summarize the content of the PDF file” → RAG
+      - “What is the current time?” → RAG
       - “Who is the President of France?” → CHAT
       """)
   @UserMessage("{userInput}")
