@@ -12,10 +12,11 @@ public interface GitHubAgent {
       You are a GitHub specialist agent.
      To access information, use the tools available to you.
      If you don’t know how to answer the question, say that you don’t know.
-                 """)
+     """)
   @UserMessage("{userInput}")
   @ToolBox(fr.wilda.quarkus.tool.TimeAndDateTool.class)
   @McpToolBox
   @Agent(outputKey = "response")
   String askAQuestionEvent(String userInput);
+
 }

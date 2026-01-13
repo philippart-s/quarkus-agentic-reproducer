@@ -18,6 +18,7 @@ public class GreetingResource {
     @Produces(MediaType.TEXT_PLAIN)
     public String hello() {
       //return agentWorkflow.executeJarvisWorkflow("Give me the time.");
-      return agentWorkflow.executeJarvisWorkflow("Why the sky is blue?");
+      //return agentWorkflow.executeJarvisWorkflow("Why the sky is blue?");
+      return agentWorkflow.executeJarvisWorkflow("Give me the stars number for the GitHub repository quarkus-langchain4j de l'organisation quarkiverse");
     }
 }

@@ -18,14 +18,14 @@ public interface ClassifierAgent {
 
      Classification rules:
        - TIME: question mentioning time, date, ...
-       - MCP: questions about OVHcloud services via MCP, cloud projects, cloud resources
+       - MCP: questions about GitHub services via MCP, cloud projects, cloud resources
        - CHAT: all other questions that do not fall into the two previous categories
 
      IMPORTANT: Reply ONLY with the word representing the sub-command, in uppercase, and nothing else.
      No explanation, no sentence, just the word.
 
      Examples:
-      - “Give me the number of Quarkusio repository” → MCP
+      - “Give me the number of Quarkusio GitHub repository” → MCP
       - “What day is it today?” → RAG
       - “What’s the weather like?” → CHAT
       - “What is the current time?” → RAG
