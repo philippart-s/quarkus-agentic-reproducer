@@ -1,62 +1,23 @@
-# quarkus-agentic-reproducer
+# How to reproduce
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+## RAG not working: 
+- `quarkus dev`
+- `curl http://localhost:8080/hello`
+- result: `I cannot find this information in the provided documents.`
 
-If you want to learn more about Quarkus, please visit its website: <https://quarkus.io/>.
-
-## Running the application in dev mode
-
-You can run your application in dev mode that enables live coding using:
-
-```shell script
-mvn quarkus:dev
+## RAG working:
+- comment line 43 in [RagAgent.java](./src/main/java/fr/wilda/quarkus/agent/RagAgent.java)
+- uncomment line 14 in [DocumentRetriever.java](./src/main/java/fr/wilda/quarkus/tool/DocumentRetriever.java)
+- `curl http://localhost:8080/hello`
+- result: 
 ```
+**AuroraTech Summit 2027 – Schedule (September 14,2027)**  
 
-> **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at <http://localhost:8080/q/dev/>.
+| Time   | Event | Speaker | Title / Description |
+|--------|-------|---------|----------------------|
+| 09:00  | Opening Keynote | Dr.Elena Vorvik | *Software That Ages Gracefully* – Architectural decisions that are never documented; long‑term impact of undocumented conventions; techniques for making architectural intent explicit |
+| 13:00  | Session 2 | Amina Solberg | *Governing AI Without Freezing Innovation* – Lightweight governance models for internal AI tools; auditability vs. developer velocity; case study of the “Glass Ledger” decision‑log framework |
+| 15:00  | Session 3 | (Speaker not listed) | (Details of the session are not provided in the documents) |
 
-## Packaging and running the application
-
-The application can be packaged using:
-
-```shell script
-mvn package
+*Reference: AuroraTech Summit 2027 schedule information.*
 ```
-
-It produces the `quarkus-run.jar` file in the `target/quarkus-app/` directory.
-Be aware that it’s not an _über-jar_ as the dependencies are copied into the `target/quarkus-app/lib/` directory.
-
-The application is now runnable using `java -jar target/quarkus-app/quarkus-run.jar`.
-
-If you want to build an _über-jar_, execute the following command:
-
-```shell script
-mvn package -Dquarkus.package.jar.type=uber-jar
-```
-
-The application, packaged as an _über-jar_, is now runnable using `java -jar target/*-runner.jar`.
-
-## Creating a native executable
-
-You can create a native executable using:
-
-```shell script
-mvn package -Dnative
-```
-
-Or, if you don't have GraalVM installed, you can run the native executable build in a container using:
-
-```shell script
-mvn package -Dnative -Dquarkus.native.container-build=true
-```
-
-You can then execute your native executable with: `./target/quarkus-agentic-reproducer-0.0.1-SNAPSHOT-runner`
-
-If you want to learn more about building native executables, please consult <https://quarkus.io/guides/maven-tooling>.
-
-## Provided Code
-
-### REST
-
-Easily start your REST Web Services
-
-[Related guide section...](https://quarkus.io/guides/getting-started-reactive#reactive-jax-rs-resources)
