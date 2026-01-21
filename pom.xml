@@ -38,11 +38,6 @@
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-rest</artifactId>
         </dependency>
-        <!-- 🐛 Uncomment to see issue -->
-        <!--dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-picocli</artifactId>
-        </dependency-->
         <dependency>
             <groupId>io.quarkiverse.langchain4j</groupId>
             <artifactId>quarkus-langchain4j-openai</artifactId>
